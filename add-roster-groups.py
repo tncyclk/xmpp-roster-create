@@ -8,12 +8,6 @@ import os
 import ldap
 import ldap.modlist as modlist
 
-"""
-KOMUT= ./ejabberdctl add_rosteritem lider_console im.mys.pardus.org.tr  ahenk-pc im.mys.pardus.org.tr '' '' both
-bu betik ve ahenk_list dosyası /opt/ejabberd-16.06/bin dizin altına kopyalanmalıdır. İlgili betik ldap tan ahenkleri okuyarak kullanıcı roster 
-grubuna eklemektedir.Ldap bilgileri girildikten sonra python add-roster-groups.py "kullanıcı adı" "xmpp servis adı" komutu ile çalıştırılmalıdır.
-
-"""
 def add_roster_1(cmd_1):
     os.system(cmd_1)
     print "run command_1 is okk"
