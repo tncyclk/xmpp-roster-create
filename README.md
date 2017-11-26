@@ -6,10 +6,10 @@ Yukarıdaki komuttan belirtilen lider_console roster grubu oluşturulmak iistene
 Betik içinde yer alan 
   **  
   	hostname="192.168.56.102"
-  	search_base = "dc=tuncay,dc=colak"
-   base_dn = "cn=admin,"+str(search_base)
-   pwd = "1"
-   ldap_obj = ldap.open(hostname)
+  	 search_base = "dc=tuncay,dc=colak"
+     base_dn = "cn=admin,"+str(search_base)
+     pwd = "1"
+      ldap_obj = ldap.open(hostname)
 **
     
 ldap bağlantısı için gerekli 
