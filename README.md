@@ -15,6 +15,6 @@ ldap bağlantısı için gerekli
 hostname, searc_base ve pwd değerleri düzenlenmelidir.
 Bu alanlar girildikten sora ilgli betik xmpp sunucusunda örneğin /opt/ejabberd-16.06/bin dizinine koplayalnmalıdır. 
 
-**python python add-roster-groups.py "kullanıcı adı" "xmpp servis adı"**
+**python add-roster-groups.py "kullanıcı adı" "xmpp servis adı"**
 
 komutu ile çalıştırtılır.
