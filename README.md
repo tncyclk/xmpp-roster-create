@@ -13,7 +13,10 @@ Betik içinde yer alan
     
 ldap bağlantısı için gerekli 
 hostname, searc_base ve pwd değerleri düzenlenmelidir.
-Bu alanlar girildikten sora ilgli betik xmpp sunucusunda örneğin /opt/ejabberd-16.06/bin dizinine koplayalnmalıdır. 
+Bu alanlar girildikten sora ilgli betik xmpp sunucusunda örneğin /opt/ejabberd-16.06/bin dizinine koplayalanmalıdır. 
+Betiğin çalıştırıldığı bilgisayarda **python-ldap** modülü yüklü olmalıdır. İlgili modülü
+**sudo apt-get install python-ldap**
+komutu ile yüklenir.
 
 **python add-roster-groups.py "kullanıcı adı" "xmpp servis adı"**
 
