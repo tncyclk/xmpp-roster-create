@@ -2,15 +2,13 @@
 
 Kullanıcı roster grubuna eklenmek veya gruptan çıkarılmak istenen kullanıcı(Bu uygullamada pardusDevice nesnesi bulunan ahenkler kullanıcı olarak filtrelenmektedir.) listesi Ldap'tan alınmaktadır.Betik xmpp sunucusunda örn:/opt/ejabberd-16.06/bin dizinine koplayalanmalıdır.
 
-<<<<<<< HEAD
-#Kurulum
+##Kurulum
 
 **sudo pip install python-ldap** veya **sudo apt-get install python-ldap**
 komutu ile python-ldap modulü yüklenir.
 
 #Roster Grubu Oluşturma
 
-=======
 ##Kurulum
 **sudo pip install python-ldap** veya **sudo apt-get install python-ldap**
 komutu ile python-ldap modulü yüklenir.
