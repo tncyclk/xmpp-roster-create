@@ -14,9 +14,9 @@ class RosterItem(object):
     def __init__(self):
         super(RosterItem, self).__init__()
         self.username = raw_input("Roster grubu oluşturmak/silmek istediğiniz kullanıcı adını giriniz: ")
-        self.xmpp_servis_name = raw_input("xmpp servis adını giriniz [eg:im.liderahenk.org]: ")
+        self.xmpp_servis_name = raw_input("xmpp servis adını giriniz [eg:im.tuncay.colak]: ")
         self.hostname = raw_input("ldap sunucu adresini giriniz: ")
-        self.search_base = raw_input("ldap base dn bilgisini giriniz[dc=liderahenk,dc=org]: ")
+        self.search_base = raw_input("ldap base dn bilgisini giriniz[dc=tuncay,dc=colak]: ")
         self.pwd = raw_input("ldap admin parolasını giriniz: ")
      
     def get_agent_uid(self):
