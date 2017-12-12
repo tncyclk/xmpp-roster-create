@@ -1,23 +1,19 @@
 # xmpp-roster-create
 
-Kullanıcı roster grubuna eklenmek istenen ahenk listesi Ldap'tan alınmaktadır. 
+Kullanıcı roster grubuna eklenmek veya gruptan çıkarılmak istenen kullanıcı(Bu uygullamada pardusDevice nesnesi bulunan ahenkler kullanıcı olarak filtrelenmektedir.) listesi Ldap'tan alınmaktadır.Betik xmpp sunucusunda örn:/opt/ejabberd-16.06/bin dizinine koplayalanmalıdır.
+
+####Kurulum
+**sudo pip install python-ldap** veya **sudo apt-get install python-ldap**
+komutu ile python-ldap modulü yüklenir.
+
+####Roster Grubu Oluşturma
 KOMUT= **./ejabberdctl add_rosteritem lider_console im.mys.tuncay.colak  ahenk-pc im.tuncay.colak '' '' both**
-Yukarıdaki komuttan belirtilen lider_console roster grubu oluşturulmak iistenen kullanıcı ve im.tuncay.colak ise xmpp servis adıdır. Bu değerler betik çalıştırılmadan önce parametre olarak girilir.
-Betik içinde yer alan 
- 
-* **hostname="192.168.56.102"**
-* **search_base = "dc=tuncay,dc=colak"**
-* **base_dn = "cn=admin,"+str(search_base)**
-* **pwd = "1"**
-* **ldap_obj = ldap.open(hostname)**
-    
-ldap bağlantısı için gerekli 
-hostname, searc_base ve pwd değerleri düzenlenmelidir.
-Bu alanlar girildikten sora ilgli betik xmpp sunucusunda örneğin /opt/ejabberd-16.06/bin dizinine koplayalanmalıdır. 
-Betiğin çalıştırıldığı bilgisayarda **python-ldap** modülü yüklü olmalıdır. İlgili modülü
-**sudo apt-get install python-ldap**
-komutu ile yüklenir.
+Yukarıdaki komuttan belirtilen lider_console roster grubu oluşturulmak istenen kullanıcı ve im.tuncay.colak ise xmpp servis adıdır. Roster Grubu oluşturulmak istenildiği durumda 
+**python roster-groups.py add** 
+"add" parametresi girilerek betik çalıştırılır ve kullanıcı tarafından xmpp ve ldap bilgileri istenir.
 
-**python add-roster-groups.py "kullanıcı adı" "xmpp servis adı"**
-
-komutu ile çalıştırtılır.
+####Roster Grubu Silme
+KOMUT= **./ejabberdctl delete_rosteritem lider_console im.mys.tuncay.colak  ahenk-pc im.tuncay.colak**
+Roster Grubu silinmek istenildiği durumda 
+**python roster-groups.py del**
+"del" parametresi girilerek betik çalıştırılır ve kullanıcı tarafından xmpp ve ldap bilgileri istenir.
