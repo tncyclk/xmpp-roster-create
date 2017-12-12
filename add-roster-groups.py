@@ -13,24 +13,22 @@ class RosterItem(object):
     """docstring for RosterItem"""
     def __init__(self):
         super(RosterItem, self).__init__()
-        self.username = raw_input("Roster grubu oluşturmak istediğiniz kullanıcı adını giriniz: ")
+        self.username = raw_input("Roster grubu oluşturmak/silmek istediğiniz kullanıcı adını giriniz: ")
         self.xmpp_servis_name = raw_input("xmpp servis adını giriniz [eg:im.liderahenk.org]: ")
-              
-
+        self.hostname = raw_input("ldap sunucu adresini giriniz: ")
+        self.search_base = raw_input("ldap base dn bilgisini giriniz[dc=liderahenk,dc=org]: ")
+        self.pwd = raw_input("ldap admin parolasını giriniz: ")
+     
     def get_agent_uid(self):
-
-        hostname="192.168.56.111"
-        search_base = "dc=liderahenk,dc=org"
-        base_dn = "cn=admin,"+str(search_base)
-        pwd = "1"
-        ldap_obj = ldap.open(hostname)
-        ldap_obj.simple_bind_s(base_dn,pwd)
-        print "ldap'a bağlantı kuruldu......"
+        self.base_dn = "cn=admin,"+str(self.search_base)
+        ldap_obj = ldap.open(self.hostname)
+        ldap_obj.simple_bind_s(self.base_dn,self.pwd)
+        print "ldap'a bağlantı kuruldu......\n"
         search_scope = ldap.SCOPE_SUBTREE
         try:
             searchAttribute = ["uid"]
             search_filter = "(objectClass=pardusDevice)"
-            ldap_result = ldap_obj.search_s(search_base, search_scope, search_filter, searchAttribute)
+            ldap_result = ldap_obj.search_s(self.search_base, search_scope, search_filter, searchAttribute)
             agent_uid_list = []
             for result in ldap_result:
                 #print (result[1]["uid"][0])
@@ -66,12 +64,11 @@ class RosterItem(object):
 
         for agent_uid in agents:         
             print"agent_uid: -->> "+str(agent_uid)
-            cmd_1 = "./ejabberdctl del_rosteritem "+str(self.username)+" "+str(self.xmpp_servis_name)+" "+str(agent_uid)+" "+str(self.xmpp_servis_name)+" '' '' both"
+            cmd_1 = "./ejabberdctl delete_rosteritem "+str(self.username)+" "+str(self.xmpp_servis_name)+" "+str(agent_uid)+" "+str(self.xmpp_servis_name)
             print "command_1: "+str(cmd_1)
             os.system(cmd_1)
 
-            cmd_2 = "./ejabberdctl del_rosteritem "+str(agent_uid)+" "+str(self.xmpp_servis_name)+" "+str(self.username)+" "+str(self.xmpp_servis_name)+" '' '' both"
-            print "command_2: "+str(cmd_2)
+            cmd_2 = "./ejabberdctl delete_rosteritem "+str(agent_uid)+" "+str(self.xmpp_servis_name)+" "+str(self.username)+" "+str(self.xmpp_servis_name)
             os.system(cmd_2)
             print "----->>  delete agent to roster <<<-----"
             print "---------------------------------------------------------------------------------------------------------------------"
