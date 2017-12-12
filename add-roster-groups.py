@@ -18,12 +18,16 @@ class RosterItem(object):
         self.hostname = raw_input("ldap sunucu adresini giriniz: ")
         self.search_base = raw_input("ldap base dn bilgisini giriniz[dc=tuncay,dc=colak]: ")
         self.pwd = raw_input("ldap admin parolasını giriniz: ")
+        self.base_dn = "cn=admin,"+str(self.search_base)
      
     def get_agent_uid(self):
-        self.base_dn = "cn=admin,"+str(self.search_base)
-        ldap_obj = ldap.open(self.hostname)
-        ldap_obj.simple_bind_s(self.base_dn,self.pwd)
-        print "ldap'a bağlantı kuruldu......\n"
+        try:
+            ldap_obj = ldap.open(self.hostname)
+            ldap_obj.simple_bind_s(self.base_dn,self.pwd)
+            print "ldap'a bağlantı kuruldu......\n"
+        except Exception as e:
+            print "ldap ile bağlantı kurulurken hata oluştu "+str(e)
+        
         search_scope = ldap.SCOPE_SUBTREE
         try:
             searchAttribute = ["uid"]
