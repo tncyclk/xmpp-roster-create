@@ -52,11 +52,11 @@ class RosterItem(object):
 
         for agent_uid in agents:         
             print"agent_uid: -->> "+str(agent_uid)
-            cmd_1 = "./ejabberdctl add_rosteritem "+str(self.username)+" "+str(self.xmpp_servis_name)+" "+str(agent_uid)+" "+str(self.xmpp_servis_name)+" '' '' both"
+            cmd_1 = "/opt/ejabberd-16.06/bin/ejabberdctl add_rosteritem "+str(self.username)+" "+str(self.xmpp_servis_name)+" "+str(agent_uid)+" "+str(self.xmpp_servis_name)+" '' '' both"
             print "command_1: "+str(cmd_1)
             os.system(cmd_1)
 
-            cmd_2 = "./ejabberdctl add_rosteritem "+str(agent_uid)+" "+str(self.xmpp_servis_name)+" "+str(self.username)+" "+str(self.xmpp_servis_name)+" '' '' both"
+            cmd_2 = "/opt/ejabberd-16.06/bin/ejabberdctl add_rosteritem "+str(agent_uid)+" "+str(self.xmpp_servis_name)+" "+str(self.username)+" "+str(self.xmpp_servis_name)+" '' '' both"
             print "command_2: "+str(cmd_2)
             os.system(cmd_2)
             print "----->>  add agent to roster <<<-----"
@@ -68,11 +68,11 @@ class RosterItem(object):
 
         for agent_uid in agents:         
             print"agent_uid: -->> "+str(agent_uid)
-            cmd_1 = "./ejabberdctl delete_rosteritem "+str(self.username)+" "+str(self.xmpp_servis_name)+" "+str(agent_uid)+" "+str(self.xmpp_servis_name)
+            cmd_1 = "/opt/ejabberd-16.06/bin/ejabberdctl delete_rosteritem "+str(self.username)+" "+str(self.xmpp_servis_name)+" "+str(agent_uid)+" "+str(self.xmpp_servis_name)
             print "command_1: "+str(cmd_1)
             os.system(cmd_1)
 
-            cmd_2 = "./ejabberdctl delete_rosteritem "+str(agent_uid)+" "+str(self.xmpp_servis_name)+" "+str(self.username)+" "+str(self.xmpp_servis_name)
+            cmd_2 = "./opt/ejabberd-16.06/bin/ejabberdctl delete_rosteritem "+str(agent_uid)+" "+str(self.xmpp_servis_name)+" "+str(self.username)+" "+str(self.xmpp_servis_name)
             os.system(cmd_2)
             print "----->>  delete agent to roster <<<-----"
             print "---------------------------------------------------------------------------------------------------------------------"
