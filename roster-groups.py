@@ -17,6 +17,7 @@ class RosterItem(object):
         self.xmpp_servis_name = raw_input("xmpp servis adını giriniz [eg:im.tuncay.colak]: ")
         self.hostname = raw_input("ldap sunucu adresini giriniz: ")
         self.search_base = raw_input("ldap base dn bilgisini giriniz[dc=tuncay,dc=colak]: ")
+        self.base_dn = "cn=admin,"+str(self.search_base)
         self.pwd = raw_input("ldap admin parolasını giriniz: ")
 
     def get_agent_uid(self):
